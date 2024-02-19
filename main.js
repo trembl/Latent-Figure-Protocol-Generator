@@ -6,20 +6,60 @@ console.log("Hello");
 // site: String or RegEx
 // cut: Replacement String
 const restrictionEnzymes = [
-  {name:"EcoRI",   site: "GAATTC",     cut: "GAA|TTC", offset: 3},
-  {name:"EcoRII",  site: /CC(A|T)GG/g, cut: "CC$1|GG", offset: 3},          // CCWGG W = A or T)
-  {name:"BamHI",   site: "GGATCC",     cut: "GGA|TCC", offset: 3},
+  {name:"EcoRI",   site: "GAATTC",     cut: "GAA|TTC", offset: 2},
+  {name:"EcoRV",   site: "GATATC",     cut: "GAT|ATC", offset: 0},
   {name:"HindIII", site: "AAGCTT",     cut: "AAG|CTT", offset: 3},
-  {name:"TaqI",    site: "TCGA",       cut: "TC|GA"  , offset: 2},
+  {name:"KpnI",    site: "GGTACC",     cut: "GGT|ACC", offset: 2},
+  {name:"BamHI",   site: "GGATCC",     cut: "GGA|TCC", offset: 2},
 ]
+
+/*
+EcoRI
+G|AATT C
+C TTAA|G
+
+A, B, C, D, E
+4! = 4*3*2 = 24
+A
+B
+C
+D
+E
+AB
+AC
+AD
+AE
+BC
+BD
+BE
+CD
+CE
+DE
+ABC
+ABD
+ABE
+BCD
+BCE
+BDE
+CDE
+
+1,1,1
+
+
+
+
+*/
+//  {name:"SacI", site: "AAGCTT",     cut: "AAG|CTT", offset: 3},
+//  {name:"SalI", site: "AAGCTT",     cut: "AAG|CTT", offset: 3},
+
+// {name:"EcoRII",  site: /CC(A|T)GG/g, cut: "CC$1|GG", offset: 3},          // CCWGG W = A or T)
+// {name:"TaqI",    site: "TCGA",       cut: "TC|GA"  , offset: 2},
+
 
 
 // Sequence
 var sequence = lambda.sequence
 //sequence = "123GAATTC"
-
-
-
 
 
 
